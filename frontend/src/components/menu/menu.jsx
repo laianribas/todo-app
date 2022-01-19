@@ -5,9 +5,9 @@ const Menu = props => {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/todos">
           <i className="fa fa-calendar-check-o"></i> TodoApp
-        </a>
+        </Link>
         <div className="collapse navbar-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">

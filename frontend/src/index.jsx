@@ -7,11 +7,7 @@ import App from './main/App'
 
 ReactDOM.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="todos" element={<Todo />} />
-      <Route path="about" element={<About />} />
-    </Routes>
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 )
