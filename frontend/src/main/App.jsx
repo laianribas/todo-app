@@ -10,6 +10,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path="todos" element={<Todo />} />
+        <Route path="/" element={<Todo />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
