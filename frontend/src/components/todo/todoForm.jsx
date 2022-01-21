@@ -5,13 +5,15 @@ import Grid from '../grid/grid'
 const todoForm = props => {
   return (
     <div role="form" className="todoForm">
-      <div class="row justify-content-between align-items-center">
+      <div className="row justify-content-between align-items-center">
         <Grid cols="11">
           <input
             type="text"
-            id="descrption"
+            id="description"
             className="form-control"
             placeholder="Adicione uma tarefa"
+            value={props.description}
+            onChange={props.handleChange}
           />
         </Grid>
         <Grid cols="1">
