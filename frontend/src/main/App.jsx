@@ -3,6 +3,7 @@ import Menu from '../components/menu/menu'
 import Todo from '../components/todo/Todo'
 import NotFound from '../components/notFound/404'
 import { Routes, Route } from 'react-router-dom'
+import './custom.css'
 
 function App() {
   return (
