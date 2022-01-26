@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import IconButton from '../button/iconButton'
 import Grid from '../grid/grid'
 
-import { changeDescription, search } from './todoActions'
+import { changeDescription, search, add, clear } from './todoActions'
 
 class todoForm extends Component {
   constructor(props) {
@@ -17,14 +17,16 @@ class todoForm extends Component {
   }
 
   keyHandler = (e) => {
+    const { add, search, description, clear } = this.props
     if (e.key === 'Enter') {
-      e.shiftKey ? this.props.handleSearch() : this.props.handleAdd()
+      e.shiftKey ? search() : add(description)
     } else if (e.key === 'Escape') {
-      this.props.handleClear()
+      clear()
     }
   }
 
   render() {
+    const { add, search, description, clear } = this.props
     return (
       <div role="form" className="todoForm">
         <div className="row justify-content-between align-items-center">
@@ -43,19 +45,15 @@ class todoForm extends Component {
             <IconButton
               type="primary"
               icon="plus"
-              onClick={this.props.handleAdd}
+              onClick={() => add(description)}
             />
             <IconButton
               type="info"
               icon="search"
-              onClick={this.props.handleSearch}
+              onClick={() => search()}
               style={{ color: 'white' }}
             />
-            <IconButton
-              type="default"
-              icon="close"
-              onClick={this.props.handleClear}
-            />
+            <IconButton type="default" icon="close" onClick={() => clear()} />
           </Grid>
         </div>
       </div>
@@ -68,6 +66,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ changeDescription, search }, dispatch)
+  bindActionCreators({ add, changeDescription, search, clear }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(todoForm)
